@@ -90,6 +90,7 @@ class RedisServiceProvider implements ServiceProviderInterface
     public function boot(Application $app)
     {
         $app->finish(function() use ($app) {
+            $persistent = false;
 
             if (isset($app["redis.persistent"])) {
                 $persistent = (bool)$app["redis.persistent"];
