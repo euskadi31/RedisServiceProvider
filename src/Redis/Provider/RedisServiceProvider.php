@@ -36,7 +36,7 @@ class RedisServiceProvider implements ServiceProviderInterface
 
             if (
                 isset($app["redis.port"]) &&
-                !empty($app["redis.host"]) &&
+                !empty($app["redis.port"]) &&
                 is_int($app["redis.port"])
             ) {
                 $port = $app["redis.port"];
@@ -44,7 +44,7 @@ class RedisServiceProvider implements ServiceProviderInterface
 
             if (
                 isset($app["redis.timeout"]) &&
-                !empty($app["redis.host"]) &&
+                !empty($app["redis.timeout"]) &&
                 is_int($app["redis.timeout"])
             ) {
                 $timeout = $app["redis.timeout"];
