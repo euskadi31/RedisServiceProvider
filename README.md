@@ -1,38 +1,27 @@
-RedisServiceProvider for Silex
-==============================
+# Silex Redis Service Provider
 
-This is the [Redis](https://github.com/nicolasff/phpredis) service provider for the Silex microframework.
+[![Build Status](https://travis-ci.org/euskadi31/RedisServiceProvider.svg?branch=master)](https://travis-ci.org/euskadi31/RedisServiceProvider)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/2c558cf6-6607-4eba-a1c1-08f60e1d14ae/mini.png)](https://insight.sensiolabs.com/projects/2c558cf6-6607-4eba-a1c1-08f60e1d14ae)
 
-Installation
-------------
 
-[Composer](https://packagist.org/packages/euskadi31/redis-service-provider) is the easiest way to get the Service provider installed and running. Just add your composer.json the following:
+## Install
 
-~~~
-"euskadi31/redis-service-provider": "dev-master"
-~~~
+Add `euskadi31/redis-service-provider` to your `composer.json`:
 
-Using Redis Service
--------------------
+    % php composer.phar require euskadi31/redis-service-provider:~1.0
 
-~~~php
-require_once __DIR__ . '/vendor/autoload.php';
+## Usage
 
-$app = new Silex\Application();
+### Configuration
 
-$app->register(new Redis\Provider\RedisServiceProvider(), array(
-    "redis.host"        => "127.0.0.1",
-    "redis.port"        => 6379,
-    "redis.timeout"     => 5,
-    "redis.persistent"  => true,
-    "redis.auth"        => "my password",
-    "redis.select"      => 2
-));
+```php
+<?php
 
-$app["redis"]->set("foo", "bar");
-~~~
+$app = new Silex\Application;
 
-License
--------
+$app->register(new \Euskadi31\Silex\Provider\RedisServiceProvider);
+```
+
+## License
 
 RedisServiceProvider is licensed under [the MIT license](LICENSE.md).

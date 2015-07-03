@@ -1,18 +1,13 @@
 composer.phar:
-	@curl -s http://getcomposer.org/installer | php
+	@curl -sS https://getcomposer.org/installer | php
 
-install: composer.phar
-	@echo Installing...
-	@php composer.phar install --dev
+vendor: composer.phar
+	@php composer.phar install
 
-update:
-	@echo "Updating..."
-	@php composer.phar self-update
-	@php composer.phar update
+test: vendor
+	@phpunit --coverage-text --coverage-html build/coverage
 
-test:
-	@./vendor/bin/phpunit
+check: vendor
+	@./vendor/bin/phpcs --standard=./vendor/leaphub/phpcs-symfony2-standard/leaphub/phpcs/Symfony2/ ./src
 
-clean:
-	@echo "Cleaning..."
-	@rm composer.phar
+travis: test check

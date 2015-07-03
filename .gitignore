@@ -1,3 +1,7 @@
-.DS_Store
-vendor
+# directories
+vendor/
+build/
+
+# files
 composer.phar
+composer.lock

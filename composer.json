@@ -1,28 +1,24 @@
 {
     "name": "euskadi31/redis-service-provider",
-    "description": "Redis service provider for Silex",
-    "keywords": ["redis", "silex", "provider", "service"],
+    "description": "A Redis Service Provider for Silex 2.0",
     "type": "library",
-    "homepage": "https://github.com/euskadi31/RedisServiceProvider",
+    "require": {
+        "silex/silex": "~2.0@dev"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.7",
+        "leaphub/phpcs-symfony2-standard": "~2.0.1"
+    },
     "license": "MIT",
     "authors": [
         {
             "name": "Axel Etcheverry",
-            "email": "axel@etcheverry.biz",
-            "homepage": "https://twitter.com/euskadi31"
+            "email": "axel@etcheverry.biz"
         }
     ],
-    "require": {
-        "php": ">=5.3.3",
-        "ext-redis": "~2.2",
-        "silex/silex": "~1.2"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "~4.0"
-    },
     "autoload": {
-        "psr-0": {
-            "Redis": "src/"
+        "psr-4": {
+            "Euskadi31\\Silex\\": "src/"
         }
     }
 }
