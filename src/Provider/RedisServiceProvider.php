@@ -12,7 +12,6 @@ namespace Euskadi31\Silex\Provider;
 
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
-use Silex\Application;
 
 /**
  * Redis integration for Silex.
