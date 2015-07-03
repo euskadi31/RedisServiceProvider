@@ -8,7 +8,7 @@
 
 Add `euskadi31/redis-service-provider` to your `composer.json`:
 
-    % php composer.phar require euskadi31/redis-service-provider:~1.0
+    % php composer.phar require euskadi31/redis-service-provider:~2.0
 
 ## Usage
 
