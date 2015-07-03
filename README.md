@@ -1,7 +1,7 @@
 # Silex Redis Service Provider
 
 [![Build Status](https://travis-ci.org/euskadi31/RedisServiceProvider.svg?branch=master)](https://travis-ci.org/euskadi31/RedisServiceProvider)
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/2c558cf6-6607-4eba-a1c1-08f60e1d14ae/mini.png)](https://insight.sensiolabs.com/projects/2c558cf6-6607-4eba-a1c1-08f60e1d14ae)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/2180e654-edaa-474c-95fe-9239d0cc7b00/mini.png)](https://insight.sensiolabs.com/projects/2180e654-edaa-474c-95fe-9239d0cc7b00)
 
 
 ## Install
