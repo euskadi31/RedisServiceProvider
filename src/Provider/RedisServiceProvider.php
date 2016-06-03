@@ -20,36 +20,42 @@ use Pimple\ServiceProviderInterface;
  */
 class RedisServiceProvider implements ServiceProviderInterface
 {
+    private $options = [
+        'type'      => 'redis',
+        'server'    => [
+            'host' => '127.0.0.1',
+            'port' => 6379
+        ],
+        'sentinels' => [],
+        'client'    => [
+            'redis'     => [
+                'retry'     => 0,
+                'interval'  => 1000,
+                'auth'      => null,
+                'namespace' => null,
+                'db'        => 0,
+                'timeout'   => 1
+            ],
+            'sentinel'  => [
+                'auth'      => null,
+                'namespace' => null,
+                'db'        => 0,
+                'timeout'   => 0.5
+            ]
+        ]
+    ];
+
+    function __construct($opts)
+    {
+        $this->options = array_replace_recursive($this->options, $opts);
+    }
+    
     /**
      * {@inheritDoc}
      */
     public function register(Container $app)
     {
-        $app['redis.options'] = [
-            'type'      => 'redis',
-            'server'    => [
-                'host' => '127.0.0.1',
-                'port' => 6379
-            ],
-            'sentinels' => [],
-            'client'    => [
-                'redis'     => [
-                    'retry'     => 0,
-                    'interval'  => 1000,
-                    'auth'      => null,
-                    'namespace' => null,
-                    'db'        => 0,
-                    'timeout'   => 1
-                ],
-                'sentinel'  => [
-                    'auth'      => null,
-                    'namespace' => null,
-                    'db'        => 0,
-                    'timeout'   => 0.5
-                ]
-            ]
-        ];
-
+        $app['redis.options'] = $this->options;
         $app['redis.manager.factory'] = $app->protect(function($options) use ($app) {
             return function() use ($options, $app) {
                 $manager = new Redis\RedisManager($options);
