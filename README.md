@@ -19,7 +19,20 @@ Add `euskadi31/redis-service-provider` to your `composer.json`:
 
 $app = new Silex\Application;
 
-$app->register(new \Euskadi31\Silex\Provider\RedisServiceProvider);
+$app->register(new \Euskadi31\Silex\Provider\RedisServiceProvider(
+    [
+        'type'      => 'redis',
+        'server'    => [
+            'host' => '10.0.0.1',
+            'port' => 9999
+        ],
+        'client'    => [
+            'redis'     => [
+                'auth'      => 'helloimredis',
+                'namespace' => 'silextwo',
+            ]
+        ]
+]));
 ```
 
 ## License
